@@ -138,20 +138,37 @@ describe 'Game' do
   end
 
   describe '#winner' do
-    it 'returns X when X won' do
-      game = Game.new
-      game.board.cells = ["X", " ", " ", " ", "X", " ", " ", " ", "X"]
-
-      expect(game.winner).to eq("X")
-    end
 
     it 'returns O when O won' do
       game = Game.new
-      game.board.cells = ["X", "O", " ", " ", "O", " ", " ", "O", "X"]
+      game.board.cells = ["O" , "O", " ", "O", " ", " ", "O", "X", "X"]
+      #["X", "O", " ", " ", "O", " ", " ", "O", "X"]
 
       expect(game.winner).to eq("O")
     end
 
+
+    it 'returns X when X won' do
+      game = Game.new     
+                       #   0     1    2   3     4   5   6     7    8    
+      game.board.cells =  ["0", "X", "2", "3", "X", "5", "6", "X", "8"]
+
+
+      #["X", "X", "X", " ", "0", " ", " ", " ", "X"] 
+        #0, 1, 2 
+      #["X", " ", " ", " ", "X", " ", " ", " ", "X"] 
+        #original test
+      #["0", "1", "X", "3", "X", "5", "X", "7", "8"]
+        #one with the indexes and the other diagonal                    
+
+      # ["X", "X", "Three", "X", "0", "five", "X", "0", "X"]
+        #a random one
+      #["Z", "X", "0", "X", "X", "X", "Y", " ", ""]
+        #another random one 
+      expect(game.winner).to eq("X")
+    end
+
+   
     it 'returns nil when no winner' do
       game = Game.new
       game.board.cells = ["X", "O", " ", " ", " ", " ", " ", "O", "X"]

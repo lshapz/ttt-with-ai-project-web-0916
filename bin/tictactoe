@@ -1,3 +1,19 @@
 #!/usr/bin/env ruby
 
 require_relative '../config/environment'
+
+
+
+def new_game
+game = Game.new
+game.start
+end 
+new_game 
+#(Players::Computer.new("X"), Players::Human.new("O"), Board.new)
+     # puts "Want some more?" 
+     #    rematch = gets.chomp 
+     #      if (rematch.downcase == "y" || rematch.downcase == "yes" || rematch.downcase == "sure")
+     #          new_game
+     #        elsif (rematch.downcase == "n" || rematch.downcase == "no" || rematch.downcase)
+     #        exit 
+     #  end 
