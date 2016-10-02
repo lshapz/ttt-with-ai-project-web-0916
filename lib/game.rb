@@ -29,7 +29,7 @@ WIN_COMBINATIONS = [
 # end 
 #player_1 = Human.new.token("X"), player_2 = Human.new.token("O"), board = Board.new
 
-def initialize(player_1 = Players::Human.new("X"), player_2 = Players::Human.new("O"), board = Board.new)
+def initialize(player_1 = Players::Human.new("X"), player_2 = Players::Computer.new("O"), board = Board.new)
   @player_1 = player_1
   @player_2 = player_2
   @board = board 
@@ -143,17 +143,18 @@ end
 
 def turn
   @player = current_player
-  current_move = player.move(@board)
+
+  # if player.class == Players::Computer
+  #     current_move = player.move
+  current_move = player.move
+  puts "Player #{current_player.token} did #{current_move}"
   if !@board.valid_move?(current_move)  
     #current_move = player.move(@board)
-    #turn
-    #current_move = player.move(@board)
-    turn
+        turn
   else
    @board.update(current_move, player)
    @board.display
-   # @board.display
-    #uncomment this after testing - it jsut makes stuff look weird
+   puts "~~~~~~~~~~~" 
   end 
 end 
   #binding.pry

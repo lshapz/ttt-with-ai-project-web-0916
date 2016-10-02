@@ -1,6 +1,6 @@
 class Board
 
-attr_accessor :cells
+attr_accessor :cells, :board, :taken, :valid_move
 
 def initialize
   self.reset!
